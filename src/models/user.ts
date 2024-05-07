@@ -10,6 +10,7 @@ import { PasswordManager } from '../services/password'
 interface UserAttrs {
   email: string
   password: string
+  role: 'admin' | 'employee'
 }
 
 // an interface that describes the properties
@@ -23,6 +24,7 @@ interface UserModel extends mongoose.Model<UserDoc> {
 interface UserDoc extends mongoose.Document {
   email: string
   password: string
+  role: 'admin' | 'employee'
 }
 
 const userSchema = new mongoose.Schema({
@@ -33,6 +35,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  role: {
+    type: String,
+    required: true,
+    enum: ['employee', 'admin'],
+    default: 'employee'
   }
 }, {
   toJSON: {
