@@ -4,7 +4,7 @@ import cookieSession from "cookie-session";
 import 'express-async-errors'
 import { json } from 'body-parser';
 
-import { currentUserRouter, signinRouter, signoutRouter, signupRouter } from "./routes";
+import { currentUserRouter, signinRouter, signoutRouter, signupRouter } from "./routes/users";
 import { NotFoundError } from "./errors";
 import { errorHandler } from "./middlewares";
 
